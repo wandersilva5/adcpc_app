@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(
-              height: size.height * 0.8,
+              height: size.height * 0.89,
               child: Stack(
                 children: <Widget>[
                   ClipPath(
@@ -41,33 +41,38 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: size.height * 0.10),
+                        SizedBox(height: size.height * 0.098),
                         // LoginForm()
                         Container(
                           margin: EdgeInsets.only(top: size.height * 0.02),
                           padding: EdgeInsets.symmetric(vertical: 10),
-                          height: 250,
+                          height: 380,
                           width: size.width * 0.90,
                           child: Container(
-                            child: LoginForm(),
+                            child: Column(
+                              children: [
+                                LoginForm(),
+                                SizedBox(height: size.height * 0.02),
+                                OrDivide(),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SocialIcon(
+                                      iconSrc: "assets/images/facebook.png",
+                                      press: () => launch(
+                                          "https://www.facebook.com/AssembleiaDeDeusCentralDePontoChic"),
+                                    ),
+                                    SocialIcon(
+                                      iconSrc: "assets/images/whatsapp.png",
+                                      press: () => launch(
+                                          'https://chat.whatsapp.com/D1g3odYUQLv6sIUjKAdWgZ'),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        OrDivide(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SocialIcon(
-                              iconSrc: "assets/images/facebook.png",
-                              press: () => launch(
-                                  "https://www.facebook.com/AssembleiaDeDeusCentralDePontoChic"),
-                            ),
-                            SocialIcon(
-                              iconSrc: "assets/images/whatsapp.png",
-                              press: () => launch(
-                                  'https://chat.whatsapp.com/D1g3odYUQLv6sIUjKAdWgZ'),
-                            ),
-                          ],
-                        )
                       ],
                     ),
                   ),

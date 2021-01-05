@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TextFieldContainer extends StatefulWidget {
+class TextFieldContainer extends StatelessWidget {
   final IconData iconField;
   final String hint, label;
   final bool senha;
@@ -17,11 +17,6 @@ class TextFieldContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TextFieldContainerState createState() => _TextFieldContainerState();
-}
-
-class _TextFieldContainerState extends State<TextFieldContainer> {
-  @override
   Widget build(BuildContext context) {
     bool showPassword = false;
     Size size = MediaQuery.of(context).size;
@@ -34,26 +29,16 @@ class _TextFieldContainerState extends State<TextFieldContainer> {
         borderRadius: BorderRadius.circular(29),
       ),
       child: TextFormField(
-        validator: widget.validator,
-        controller: widget.controller,
-        obscureText: showPassword == false ? widget.senha : false,
+        validator: validator,
+        controller: controller,
+        obscureText: showPassword == false ? senha : false,
         onChanged: (value) {},
         decoration: InputDecoration(
-          hintText: widget.hint,
-          labelText: widget.label,
-          icon: Icon(widget.iconField),
-          suffixIcon: widget.senha == true
-              ? GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      showPassword = !showPassword;
-                      debugPrint("certo $showPassword");
-                    });
-                  },
-                  child: Icon(showPassword == false
-                      ? Icons.visibility_off
-                      : Icons.visibility),
-                )
+          hintText: hint,
+          labelText: label,
+          icon: Icon(iconField),
+          suffixIcon: senha == true
+              ? Icon(Icons.visibility_off)
               : Icon(
                   Icons.visibility,
                   color: Colors.white,
