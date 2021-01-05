@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TextFieldContainer extends StatelessWidget {
+class TextFieldPassword extends StatelessWidget {
   final IconData iconField;
   final String hint, label;
   final bool senha;
   final ValueChanged<String> onChanged;
   final TextEditingController controller;
   final FormFieldValidator<String> validator;
-  const TextFieldContainer({
+  const TextFieldPassword({
     Key key,
     this.hint,
     this.label,
@@ -32,11 +32,13 @@ class TextFieldContainer extends StatelessWidget {
       child: TextFormField(
         validator: validator,
         controller: controller,
+        obscureText: true,
         onChanged: onChanged,
         decoration: InputDecoration(
           hintText: hint,
           labelText: label,
           icon: Icon(iconField),
+          suffixIcon: Icon(Icons.visibility_off),
           border: InputBorder.none,
         ),
       ),

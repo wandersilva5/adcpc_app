@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(
-              height: size.height * 0.89,
+              height: size.height * 1,
               child: Stack(
                 children: <Widget>[
                   ClipPath(
@@ -41,12 +41,12 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: size.height * 0.098),
+                        SizedBox(height: size.height * 0.02),
                         // LoginForm()
                         Container(
                           margin: EdgeInsets.only(top: size.height * 0.02),
                           padding: EdgeInsets.symmetric(vertical: 10),
-                          height: 380,
+                          height: size.height * 1,
                           width: size.width * 0.90,
                           child: Container(
                             child: Column(

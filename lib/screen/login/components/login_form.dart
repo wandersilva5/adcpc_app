@@ -1,5 +1,6 @@
 import 'package:adcpc/common/alerts/alert.dart';
 import 'package:adcpc/common/custom_form/text_field_container.dart';
+import 'package:adcpc/common/custom_form/text_field_pass_container.dart';
 import 'package:adcpc/constants.dart';
 import 'package:adcpc/screen/base/base_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,14 +24,16 @@ class LoginForm extends StatelessWidget {
               hint: "Digite seu CPF",
               validator: validateLogin,
               controller: ctrlLogin,
+              onChanged: (value) {},
             ),
-            TextFieldContainer(
+            TextFieldPassword(
               iconField: Icons.lock,
               label: "Senha",
               hint: "Digite sua senha",
               validator: validatePassword,
               controller: ctrlPassword,
               senha: true,
+              onChanged: (value) {},
             ),
             Container(
               margin: EdgeInsets.only(top: 10),
@@ -51,7 +54,7 @@ class LoginForm extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(29),
                 child: FlatButton(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 150),
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 126),
                   color: Color(0xFF4169E1),
                   onPressed: () {
                     _clickButon(context);
