@@ -3,7 +3,6 @@ import 'package:adcpc/screen/login/components/login_form.dart';
 import 'package:adcpc/screen/login/components/or_divider.dart';
 import 'package:adcpc/screen/login/components/social_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key key}) : super(key: key);
@@ -18,7 +17,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             SizedBox(
-              height: size.height * 1,
+              height: size.height * 0.98,
               child: Stack(
                 children: <Widget>[
                   ClipPath(
@@ -41,43 +40,16 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: size.height * 0.02),
-                        // LoginForm()
-                        Container(
-                          margin: EdgeInsets.only(top: size.height * 0.02),
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          height: size.height * 1,
-                          width: size.width * 0.90,
-                          child: Container(
-                            child: Column(
-                              children: [
-                                LoginForm(),
-                                SizedBox(height: size.height * 0.02),
-                                OrDivide(),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SocialIcon(
-                                      iconSrc: "assets/images/facebook.png",
-                                      press: () => launch(
-                                          "https://www.facebook.com/AssembleiaDeDeusCentralDePontoChic"),
-                                    ),
-                                    SocialIcon(
-                                      iconSrc: "assets/images/whatsapp.png",
-                                      press: () => launch(
-                                          'https://chat.whatsapp.com/D1g3odYUQLv6sIUjKAdWgZ'),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        const SizedBox(height: 30),
+                        LoginForm(),
                       ],
                     ),
                   ),
                 ],
               ),
+            ),
+            Column(
+              children: <Widget>[],
             ),
           ],
         ),

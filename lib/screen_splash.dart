@@ -1,6 +1,5 @@
 import 'package:adcpc/constants.dart';
 import 'package:adcpc/screen/login/login_screen.dart';
-import 'package:adcpc/size_config.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSplash extends StatefulWidget {

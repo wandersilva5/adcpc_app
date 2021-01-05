@@ -1,125 +1,114 @@
-import 'package:adcpc/common/alerts/alert.dart';
-import 'package:adcpc/common/custom_form/text_field_container.dart';
-import 'package:adcpc/common/custom_form/text_field_pass_container.dart';
 import 'package:adcpc/constants.dart';
-import 'package:adcpc/screen/base/base_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-final formkey = GlobalKey<FormState>();
+import 'or_divider.dart';
+import 'social_icon.dart';
 
 class LoginForm extends StatelessWidget {
-  final ctrlLogin = TextEditingController();
-  final ctrlPassword = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Form(
-        key: formkey,
-        child: Column(
-          children: [
-            TextFieldContainer(
-              iconField: Icons.person,
-              label: "CPF",
-              hint: "Digite seu CPF",
-              validator: validateLogin,
-              controller: ctrlLogin,
-              onChanged: (value) {},
+    return Material(
+      color: Colors.transparent,
+      child: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        shrinkWrap: true,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            margin: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(29),
             ),
-            TextFieldPassword(
-              iconField: Icons.lock,
-              label: "Senha",
-              hint: "Digite sua senha",
-              validator: validatePassword,
-              controller: ctrlPassword,
-              senha: true,
-              onChanged: (value) {},
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
-                color: Colors.black26,
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 8,
-                    offset:
-                        const Offset(0.1, 0.1), // changes position of shadow
-                  ),
-                ],
+            child: TextFormField(
+              keyboardType: TextInputType.number,
+              autocorrect: false,
+              decoration: InputDecoration(
+                hintText: "CPF",
+                labelText: "Digite o seu CPF",
+                icon: Icon(Icons.person),
+                border: InputBorder.none,
               ),
-              // margin: EdgeInsets.symmetric(vertical: 5),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(29),
-                child: FlatButton(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 126),
-                  color: Color(0xFF4169E1),
-                  onPressed: () {
-                    _clickButon(context);
-                  },
-                  child: Text(
-                    "ENTRAR",
-                    style: TextStyle(
-                        color: kTextColor, fontWeight: FontWeight.bold),
-                  ),
+              validator: validCPF,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            margin: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(29),
+            ),
+            child: TextFormField(
+              autocorrect: false,
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: "Senha",
+                labelText: "Digite a sua senha",
+                icon: Icon(Icons.lock),
+                border: InputBorder.none,
+              ),
+              validator: validSenha,
+            ),
+          ),
+          const SizedBox(height: 15),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.black26,
+              borderRadius: BorderRadius.circular(50),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 8,
+                  offset: const Offset(0.1, 0.1), // changes position of shadow
                 ),
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(29),
+              child: FlatButton(
+                padding: EdgeInsets.symmetric(
+                  vertical: 20,
+                ),
+                onPressed: () {},
+                color: kPrimaryColor,
+                textColor: Colors.white,
+                child: const Text("Entrar"),
               ),
             ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 20),
+          OrDivide(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SocialIcon(
+                iconSrc: "assets/images/facebook.png",
+                press: () => launch(
+                    "https://www.facebook.com/AssembleiaDeDeusCentralDePontoChic"),
+              ),
+              SocialIcon(
+                iconSrc: "assets/images/whatsapp.png",
+                press: () =>
+                    launch('https://chat.whatsapp.com/D1g3odYUQLv6sIUjKAdWgZ'),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
 
-  _clickButon(BuildContext context) async {
-    bool formOk = formkey.currentState.validate();
-
-    if (!formOk) {
-      return;
-    }
-    String login = "teste"; // ctrlLogin.text;
-    String password = "123456"; //ctrlPassword.text;
-
-    print("Login digitado: $login, e senha digitada: $password");
-
-    // var usuario = await AuthenticateApi.login(login, password);
-
-    if (login == "teste") {
-      //if(usuario != null){
-      navHome(context);
-    } else {
-      alert(context, "Login Inválido");
-    }
+  String validCPF(String value) {
+    if (value.isEmpty || value.length < 3) return "CPF inválido";
+    return null;
   }
 
-  void navHome(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => BaseScreen(),
-      ),
-    );
+  String validSenha(String value) {
+    if (value.isEmpty || value.length < 3) return "senha inválida";
+    return null;
   }
-}
-
-String validateLogin(String text) {
-  if (text.isEmpty) {
-    return "Este campo não pode ficar vazio";
-  }
-  if (text.length < 5) {
-    return "Esse não é um CPF válido";
-  }
-  return null;
-}
-
-String validatePassword(String text) {
-  if (text.isEmpty) {
-    return "Este campo não pode ficar vazio";
-  }
-  if (text.length < 3) {
-    return "Esse não é uma senha válida";
-  }
-  return null;
 }
