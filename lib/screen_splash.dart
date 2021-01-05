@@ -1,5 +1,6 @@
 import 'package:adcpc/constants.dart';
 import 'package:adcpc/screen/login/login_screen.dart';
+import 'package:adcpc/size_config.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSplash extends StatefulWidget {
@@ -40,24 +41,25 @@ class _ScreenSplashState extends State<ScreenSplash> {
             children: <Widget>[
               Image.asset(
                 "assets/images/logo-branco.png",
-                width: 200,
+                width: 150,
+                height: 150,
               ),
               SizedBox(height: 10),
               Text(
                 "adcpc",
-                style: TextStyle(color: kTextColor, fontSize: 30),
+                style: TextStyle(color: kTextColor, fontSize: 22),
               ),
               SizedBox(height: 30),
               Text(
                 "ASSEMBLEIA DE DEUS",
-                style: TextStyle(color: kTextColor, fontSize: 30),
+                style: TextStyle(color: kTextColor, fontSize: 22),
               ),
               Text(
                 "CENTRAL DE PONTO CHIC",
-                style: TextStyle(color: kTextColor, fontSize: 30),
+                style: TextStyle(color: kTextColor, fontSize: 22),
               ),
               Padding(
-                padding: const EdgeInsets.all(80.0),
+                padding: const EdgeInsets.only(top: 200),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
