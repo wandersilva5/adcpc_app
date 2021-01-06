@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "774994665878",
+    "project_id": "app-igreja-2021",
+    "storage_bucket": "app-igreja-2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774994665878:android:99136dcd92ca4d2b0fbdb7",
+        "android_client_info": {
+          "package_name": "br.com.wandersilva.adcpc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774994665878-lfr0luka2d3kn93f79spurmklkp3ob84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB6MogPqOK3aWm65yr5lZETGeT0pTYa8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774994665878-lfr0luka2d3kn93f79spurmklkp3ob84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

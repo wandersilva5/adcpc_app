@@ -1,7 +1,5 @@
 import 'package:adcpc/constants.dart';
 import 'package:adcpc/screen/login/components/login_form.dart';
-import 'package:adcpc/screen/login/components/or_divider.dart';
-import 'package:adcpc/screen/login/components/social_icon.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
