@@ -1,4 +1,5 @@
-import 'package:adcpc/common/custom_bottom_nav_bar/custom_bottom_nav_bar.dart';
+import 'package:adcpc/common/custom_nav_bar/custom_bottom_nav_bar.dart';
+import 'package:adcpc/common/custom_nav_bar/custom_drawer.dart';
 import 'package:adcpc/constants.dart';
 import 'package:adcpc/models/page_manager.dart';
 import 'package:adcpc/screen/dizimo/dizimo_screen.dart';
@@ -22,21 +23,25 @@ class BaseScreen extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         children: <Widget>[
           Scaffold(
+            drawer: CustomDrawer(),
             appBar: buildAppBar(),
             body: HomeScreen(),
             bottomNavigationBar: CustomBottomNavBar(),
           ),
           Scaffold(
+            drawer: CustomDrawer(),
             appBar: buildAppBar(),
             body: DizimoScreen(),
             bottomNavigationBar: CustomBottomNavBar(),
           ),
           Scaffold(
+            drawer: CustomDrawer(),
             appBar: buildAppBar(),
             body: MemberScreen(),
             bottomNavigationBar: CustomBottomNavBar(),
           ),
           Scaffold(
+            drawer: CustomDrawer(),
             appBar: buildAppBar(),
             body: ProfileScreen(),
             bottomNavigationBar: CustomBottomNavBar(),

@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
                   ClipPath(
                     clipper: CustomShape(),
                     child: Container(
-                      height: size.height * 0.3,
+                      height: size.height * 0.33,
                       color: Colors.white,
                     ),
                   ),
