@@ -2,7 +2,7 @@ import 'package:adcpc/screen/member/components/membro_info.dart';
 import 'package:adcpc/size_config.dart';
 import 'package:flutter/material.dart';
 
-import 'components/membro_card.dart';
+import 'components/lancamentos_card.dart';
 
 class MemberScreen extends StatelessWidget {
   @override
