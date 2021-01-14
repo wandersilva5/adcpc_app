@@ -18,15 +18,23 @@ class User {
     name = document.data['nome'] as String;
     email = document.data['email'] as String;
     cargo = document.data['cargo'] as String;
-    dataNascimento = document.data['dataNascimento'] as Timestamp;
+    dataNascimento = document.data['dataNascimento'] as String;
     dizimista = document.data['dizimista'] as bool;
     filiacao = document.data['filiacao'] as String;
     membro = document.data['membro'] as String;
     sobrenome = document.data['sobrenome'] as String;
   }
   bool dizimista;
-  Timestamp dataNascimento;
-  String id, name, sobrenome, email, password, cargo, filiacao, membro;
+
+  String id,
+      name,
+      sobrenome,
+      email,
+      password,
+      cargo,
+      filiacao,
+      membro,
+      dataNascimento;
 
   DocumentReference get firestoreRef =>
       Firestore.instance.document('/usuarios/$id');

@@ -94,7 +94,7 @@ class CustomDrawerHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(32, 24, 16, 8),
-      height: 150,
+      height: 180,
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
@@ -125,7 +125,7 @@ class CustomDrawerHeader extends StatelessWidget {
                 ),
               ),
               Text(
-                'Olá, ${userManager.user?.name ?? ''}${userManager.user?.sobrenome ?? ''}',
+                'Olá, ${userManager.user?.name ?? ''} ${userManager.user?.sobrenome ?? ''}',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 style: TextStyle(
