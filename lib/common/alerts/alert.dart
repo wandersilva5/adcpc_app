@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-alert(BuildContext context, String msg){
+alert(BuildContext context, String title, String msg) {
   showDialog<void>(
     context: context,
     builder: (BuildContext dialogContext) {
       return AlertDialog(
-        title: Text('Login'),
+        title: Text(title),
         content: Text(msg),
         actions: <Widget>[
           FlatButton(

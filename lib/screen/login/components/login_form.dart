@@ -140,10 +140,10 @@ class LoginForm extends StatelessWidget {
               password: senhaController.text,
             ),
             onfail: (e) {
-              alert(context, e);
+              alert(context, "LOGIN", e);
             },
             onSuccess: () {
-              alert(context, "Login feito com sucesso!");
+              alert(context, "LOGIN", "Login feito com sucesso!");
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => BaseScreen()),
