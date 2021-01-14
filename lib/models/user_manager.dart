@@ -35,6 +35,12 @@ class UserManager extends ChangeNotifier {
     setLoading(false);
   }
 
+  void signOut() {
+    auth.signOut();
+    user = null;
+    notifyListeners();
+  }
+
   void setLoading(bool value) {
     loading = value;
   }

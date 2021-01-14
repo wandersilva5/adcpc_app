@@ -53,6 +53,22 @@ class BaseScreen extends StatelessWidget {
             body: LancamentosScreen(),
             bottomNavigationBar: CustomBottomNavBar(),
           ),
+          Scaffold(
+            drawer: CustomDrawer(),
+            appBar: buildAppBar(),
+            body: Center(
+              child: Text("Mensagens"),
+            ),
+            bottomNavigationBar: CustomBottomNavBar(),
+          ),
+          Scaffold(
+            drawer: CustomDrawer(),
+            appBar: buildAppBar(),
+            body: Center(
+              child: Text("Avisos"),
+            ),
+            bottomNavigationBar: CustomBottomNavBar(),
+          ),
         ],
       ),
     );
