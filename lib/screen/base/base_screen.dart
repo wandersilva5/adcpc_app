@@ -4,6 +4,7 @@ import 'package:adcpc/constants.dart';
 import 'package:adcpc/models/page_manager.dart';
 import 'package:adcpc/screen/dizimo/dizimo_screen.dart';
 import 'package:adcpc/screen/home/home_screen.dart';
+import 'package:adcpc/screen/lancamentos/lancamentos_screen.dart';
 import 'package:adcpc/screen/member/member_screen.dart';
 import 'package:adcpc/screen/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +45,12 @@ class BaseScreen extends StatelessWidget {
             drawer: CustomDrawer(),
             appBar: buildAppBar(),
             body: ProfileScreen(),
+            bottomNavigationBar: CustomBottomNavBar(),
+          ),
+          Scaffold(
+            drawer: CustomDrawer(),
+            appBar: buildAppBar(),
+            body: LancamentosScreen(),
             bottomNavigationBar: CustomBottomNavBar(),
           ),
         ],

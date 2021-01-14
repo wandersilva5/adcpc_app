@@ -3,8 +3,8 @@ import 'package:adcpc/constants.dart';
 import 'package:adcpc/size_config.dart';
 import 'package:flutter/material.dart';
 
-class MembroInfo extends StatelessWidget {
-  const MembroInfo({
+class LancamentosInfo extends StatelessWidget {
+  const LancamentosInfo({
     Key key,
     this.titleVideo,
     this.image,

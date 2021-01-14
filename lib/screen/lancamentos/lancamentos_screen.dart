@@ -1,10 +1,10 @@
-import 'package:adcpc/screen/member/components/membro_info.dart';
 import 'package:adcpc/size_config.dart';
 import 'package:flutter/material.dart';
 
-import 'components/lancamentos_card.dart';
+import 'components/lancamentos_body.dart';
+import 'components/lancamentos_info.dart';
 
-class MemberScreen extends StatelessWidget {
+class LancamentosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -14,12 +14,12 @@ class MemberScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            MembroInfo(
+            LancamentosInfo(
               image: "assets/images/logo-branco.png",
-              titleVideo: "CARTÃO DE MEMBRO",
+              titleVideo: "LANÇAMENTO DE DIZIMOS",
             ),
             SizedBox(height: defaultSize * 2),
-            MembroCard(),
+            LancamentosBody(),
           ],
         ),
       ),

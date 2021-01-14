@@ -1,6 +1,15 @@
 class User {
-  User({this.email, this.password});
+  User({this.email, this.password, this.name, this.id});
 
-  String email;
-  String password;
+  int id;
+  String name, email, password;
+
+  // factory User.fromJson(Map<String, dynamic> parsedJason) {
+  //   return User(
+  //     id: parsedJason['id'],
+  //     name: parsedJason['name'] as String,
+  //     email: parsedJason['email'] as String,
+  //     password: parsedJason['password'] as String,
+  //   );
+  // }
 }
