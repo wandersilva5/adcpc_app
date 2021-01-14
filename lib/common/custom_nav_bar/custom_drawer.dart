@@ -1,5 +1,6 @@
 import 'package:adcpc/constants.dart';
 import 'package:adcpc/models/page_manager.dart';
+import 'package:adcpc/models/user_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,6 +12,7 @@ class CustomDrawer extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: <Widget>[
+          CustomDrawerHeader(),
           DrawerTile(iconData: Icons.home, title: "Início", page: 0),
           DrawerTile(
               iconData: Icons.monetization_on, title: "Lançamentos", page: 4),
@@ -80,6 +82,77 @@ class DrawerTile extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CustomDrawerHeader extends StatelessWidget {
+  const CustomDrawerHeader({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(32, 24, 16, 8),
+      height: 150,
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            width: 1,
+            color: kPrimaryColor,
+          ),
+        ),
+        gradient: LinearGradient(
+          colors: [
+            kPrimaryColor.withOpacity(0.015),
+            kPrimaryColor.withOpacity(0.3),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: Consumer<UserManager>(
+        builder: (_, userManager, __) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                "Ass. de Deus\nCentral de P. Chic",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'Olá, ${userManager.user?.name ?? ''}${userManager.user?.sobrenome ?? ''}',
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  // color: Colors.black,
+                  borderRadius: BorderRadius.circular(29),
+                ),
+                child: Text(
+                  userManager.isLoggedIn ? "online" : "off line",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: userManager.isLoggedIn
+                        ? Colors.green[400]
+                        : Colors.red[400],
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

@@ -1,15 +1,41 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class User {
-  User({this.email, this.password, this.name, this.id});
+  User({
+    this.email,
+    this.password,
+    this.name,
+    this.sobrenome,
+    this.cargo,
+    this.dataNascimento,
+    this.dizimista,
+    this.filiacao,
+    this.membro,
+  });
 
-  int id;
-  String name, email, password;
+  User.fromDocument(DocumentSnapshot document) {
+    id = document.documentID;
+    name = document.data['nome'] as String;
+    email = document.data['email'] as String;
+    cargo = document.data['cargo'] as String;
+    dataNascimento = document.data['dataNascimento'] as Timestamp;
+    dizimista = document.data['dizimista'] as bool;
+    filiacao = document.data['filiacao'] as String;
+    membro = document.data['membro'] as String;
+    sobrenome = document.data['sobrenome'] as String;
+  }
+  bool dizimista;
+  Timestamp dataNascimento;
+  String id, name, sobrenome, email, password, cargo, filiacao, membro;
 
-  // factory User.fromJson(Map<String, dynamic> parsedJason) {
-  //   return User(
-  //     id: parsedJason['id'],
-  //     name: parsedJason['name'] as String,
-  //     email: parsedJason['email'] as String,
-  //     password: parsedJason['password'] as String,
-  //   );
-  // }
+  DocumentReference get firestoreRef =>
+      Firestore.instance.document('/usuarios/$id');
+
+  Future<void> saveData() async {
+    await firestoreRef.setData(toMap());
+  }
+
+  Map<String, dynamic> toMap() {
+    return {'name': name, 'email': email};
+  }
 }
