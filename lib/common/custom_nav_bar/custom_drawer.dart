@@ -10,7 +10,8 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           CustomDrawerHeader(),
           DrawerTile(iconData: Icons.home, title: "Início", page: 0),
@@ -18,7 +19,45 @@ class CustomDrawer extends StatelessWidget {
               iconData: Icons.monetization_on, title: "Lançamentos", page: 4),
           DrawerTile(iconData: Icons.message, title: "Mensagens", page: 5),
           DrawerTile(iconData: Icons.pageview, title: "Avisos", page: 6),
-          DrawerTile(iconData: Icons.exit_to_app, title: "Sair", page: 7),
+          InkWell(
+            onTap: () {},
+            child: SizedBox(
+              height: 60,
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 32),
+                    child: Icon(
+                      Icons.exit_to_app,
+                      size: 32,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  Text(
+                    "Sair",
+                    style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  left: BorderSide(
+                    width: 0.5,
+                    color: kPrimaryColor,
+                  ),
+                ),
+              ),
+              padding: EdgeInsets.only(bottom: 20),
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Text("Versão 1.0"),
+              ),
+            ),
+          ),
         ],
       ),
     );
